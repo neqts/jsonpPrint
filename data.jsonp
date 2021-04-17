@@ -1,4 +1,4 @@
-{
+const json={
    "gvlSpecificationVersion":2,
    "vendorListVersion":81,
    "tcfPolicyVersion":2,
@@ -24766,4 +24766,4 @@
          "usesNonCookieAccess":true
       }
    }
-}
+   }

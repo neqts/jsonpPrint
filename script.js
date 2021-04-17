@@ -1,52 +1,32 @@
 "use strict"
 
 
-var theVendors = [];
-let theName = [];
-const show =[]
-let mainObj ={}
 
-let showObj =function(){
-for(let prop in mainObj){
-  console.log(prop)
-  console.log(mainObj[prop])
-  }
+
+console.log(json)
+
+const getNames = (obj) => Object.values(obj).map(el => el.name)
+
+const purposesNames =getNames(json.purposes)
+const vendorsNames = getNames(json.vendors)
+const specialFeaturesNames =getNames(json.specialFeatures)
+const specialPurposesNames = getNames(json.specialPurposes)
+const stacksNames = getNames(json.stacks)
+
+
+console.log(purposesNames,vendorsNames,specialFeaturesNames,specialPurposesNames,stacksNames)
+
+
+var step;
+for (step = 0; step < 972; step++) {
+ console.log(json.vendors[step].policyUrl)  
+ 
 }
 
-fetch("data.json")
-.then(function(resp){
-  console.log(resp)
-
-    return resp.json();
- 
-
-})
 
 
 
-.then(function(data){
-   
-    theVendors = data.vendors
-    theName=data.name
-    mainObj=data
-  
-    showObj()
-    // let number = 972
-    // let step;
-    // for (step = 0; step < number; step++) {
-    //   const show = Vendors[step]
-    //   console.log(show)
-    // }
-   
 
-
-   
-})
-
-
-const test = theVendors.map(function(x){
-  console.log(x)
-})
 
 
 // const x = theVendors.map()
