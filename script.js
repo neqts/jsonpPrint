@@ -14,12 +14,18 @@ const stacksNames = getNames(json.stacks)
 
 let outputArr = []
 window.onload = function main() {
+
   const add = document.createElement('div')
   add.setAttribute("id", "demo");
   const overall = document.createElement('div')
   Object.entries(json.vendors).forEach(vendor => {
     outputArr.push(vendor[1].policyUrl) 
   })
+
+
+
+
+
 
 
   const add2 = document.createElement('div')
@@ -43,6 +49,9 @@ window.onload = function main() {
 
   overall.appendChild(add);
   document.body.style.overflow="hidden"
+   document.body.style.backdropFilter="blur(7px)";
+   document.body.style.margin="0px"
+   document.body.style.padding="21px"
   document.body.style.justifyContent="center"
   document.body.appendChild(add);
   document.body.style.background = "url(https://www.hgsm.pl/wp-content/uploads/2017/03/Pattern-Blue-Dots-background-patterns-pattern-wallpapers-1920x1080.jpg)"
@@ -51,6 +60,48 @@ window.onload = function main() {
 
 
 
+      
+  const add3 = document.createElement('div')
+  add3.classList.add('butons')
+  document.body.appendChild(add3)
+  const accept = document.createElement('button')
+  add3.appendChild(accept)
+  accept.classList.add('btn1')
+  const reject = document.createElement('button')
+  add3.appendChild(reject)
+  reject.classList.add('btn2')
+  accept.innerHTML="ACCEPT"
+  reject.innerHTML="REJECT"
+
+  accept.addEventListener("click",show)
+  reject.addEventListener("click",hide)
+   document.querySelector('.butons')
+
+
+  function show() {
+   add2.style.display="none"
+   add3.style.display="none;"
+   final.style.display="none"
+   document.querySelector('.butons').style.display="none"
+   document.body.style.backdropFilter="none"
+
+    
+  }
+  
+  function hide() {
+    add2.style.display="none"
+    add3.style.display="none;"
+    final.style.display="none"
+    document.querySelector('.butons').style.display="none"
+    document.body.style.width="100%"
+    document.body.style.height="100vh"
+ 
+     
+   }
+ 
+
+
+  
   
   overall.style.cssText = `
       position: fixed;
@@ -62,7 +113,7 @@ window.onload = function main() {
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(7px);
     `;
   add.style.cssText = `
       display: flex;
@@ -87,5 +138,16 @@ window.onload = function main() {
   margin: 0 auto;
   font-size:7px;
 `;
- 
+add3.style.cssText = `
+display: flex;
+padding-top:20px;
+padding-bottom:20px;
+justify-content: center;
+align-items: center;
+width:90%;
+height: 90%;
+background: white;
+margin: 0 auto;
+font-size:7px;
+`;
 }
