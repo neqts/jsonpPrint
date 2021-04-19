@@ -21,28 +21,35 @@ window.onload = function main() {
   const add = document.createElement('div')
   add.setAttribute("id", "demo");
   const overall = document.createElement('div')
-  
-
-
 
   const add2 = document.createElement('div')
-  
   Object.values(json.vendors).forEach(vendor => {
     const span = document.createElement('span');
+    var checkbox = document.createElement('input');
+              
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    checkbox.id = "id";
+    checkbox.style.height="3px"
+    checkbox.style.margin="0px"
     
     add2.appendChild(span)
+    add2.appendChild(checkbox)
+   
     span.style.cssText=`
-    font-size:4px;`
+    font-size:3px;`
     span.innerHTML = `${vendor.name}, <a href="${vendor.policyUrl}" >${vendor.policyUrl}</a>
-    <input type="checkbox" id="check" class="test" name="choice1" ><input type="checkbox" id="check" name="choice2" >`;
+    ${checkbox}`;
 
     
     add2.appendChild(span);
     
     
   });
-
+  // elements = document.getElementsByTagName(input)
  document.body.appendChild(add2)
+//  console.log(elements)
 
 
 
@@ -128,7 +135,7 @@ window.onload = function main() {
       height: 90%;
       background: white;
       margin: 0px auto;
-      font-size:3px;
+      font-size:2px;
     `;
 
 
@@ -141,12 +148,12 @@ window.onload = function main() {
   height: 90%;
   background: white;
   margin: 0 auto;
-  font-size:4px;
+  font-size:3px;
 `;
 add3.style.cssText = `
 display: flex;
-padding-top:20px;
-padding-bottom:20px;
+padding-top:10px;
+padding-bottom:10px;
 justify-content: center;
 align-items: center;
 width:90%;
