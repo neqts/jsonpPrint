@@ -1,7 +1,10 @@
 "use strict"
 
 console.log(json)
+/*declaration constants*/
 const getNames = (obj) => Object.values(obj).map(el => el.name)
+
+
 
 const purposesNames = getNames(json.purposes)
 const vendorsNames = getNames(json.vendors)
@@ -18,48 +21,56 @@ window.onload = function main() {
   const add = document.createElement('div')
   add.setAttribute("id", "demo");
   const overall = document.createElement('div')
-  Object.entries(json.vendors).forEach(vendor => {
-    outputArr.push(vendor[1].policyUrl) 
-  })
-
-
-
-
+  
 
 
 
   const add2 = document.createElement('div')
-  document.body.appendChild(add2)
-  const h1 = document.createElement('h1')
-  add2.appendChild(h1)
-
-  h1.innerHTML="GDPR consent"
-  h1.style.cssText=`
-  display:flex;
-  justify-content:center;
-  `
   
-  const p2 = document.createElement('p')
-  add2.appendChild(p2)
-  p2.innerHTML=vendorsNames
-  add2.classList.add('names')
- 
- 
+  Object.values(json.vendors).forEach(vendor => {
+    const span = document.createElement('span');
+    
+    add2.appendChild(span)
+    span.style.cssText=`
+    font-size:4px;`
+    span.innerHTML = `${vendor.name}, <a href="${vendor.policyUrl}" >${vendor.policyUrl}</a>
+    <input type="checkbox" id="check" class="test" name="choice1" ><input type="checkbox" id="check" name="choice2" >`;
 
+    
+    add2.appendChild(span);
+    
+    
+  });
+
+ document.body.appendChild(add2)
+
+
+
+
+
+
+  
+
+
+ 
+ 
+/*overal styling */
 
   overall.appendChild(add);
+
   document.body.style.overflow="hidden"
    document.body.style.backdropFilter="blur(7px)";
    document.body.style.margin="0px"
    document.body.style.padding="21px"
   document.body.style.justifyContent="center"
   document.body.appendChild(add);
+  document.body.style.paddingBottom="1000px";
   document.body.style.background = "url(https://www.hgsm.pl/wp-content/uploads/2017/03/Pattern-Blue-Dots-background-patterns-pattern-wallpapers-1920x1080.jpg)"
   var final = document.getElementById("demo");
   final.innerHTML = outputArr;
 
 
-
+/*Buttons */
       
   const add3 = document.createElement('div')
   add3.classList.add('butons')
@@ -72,10 +83,10 @@ window.onload = function main() {
   reject.classList.add('btn2')
   accept.innerHTML="ACCEPT"
   reject.innerHTML="REJECT"
-
   accept.addEventListener("click",show)
   reject.addEventListener("click",hide)
    document.querySelector('.butons')
+   
 
 
   function show() {
@@ -84,6 +95,7 @@ window.onload = function main() {
    final.style.display="none"
    document.querySelector('.butons').style.display="none"
    document.body.style.backdropFilter="none"
+   mySave()
 
     
   }
@@ -100,21 +112,14 @@ window.onload = function main() {
    }
  
 
+   function mySave() {
+    var myContent = "Accepted"
+    localStorage.setItem("myContent", myContent);
+  }
 
   
-  
-  overall.style.cssText = `
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(7px);
-    `;
+  /* styling */
+
   add.style.cssText = `
       display: flex;
       justify-content: center;
@@ -122,21 +127,21 @@ window.onload = function main() {
       width:90%;
       height: 90%;
       background: white;
-      margin: 0 auto;
-      font-size:7px;
+      margin: 0px auto;
+      font-size:3px;
     `;
 
 
     
   add2.style.cssText = `
-  display: grid;
+
   justify-content: center;
   align-items: center;
   width:90%;
   height: 90%;
   background: white;
   margin: 0 auto;
-  font-size:7px;
+  font-size:4px;
 `;
 add3.style.cssText = `
 display: flex;
@@ -148,6 +153,6 @@ width:90%;
 height: 90%;
 background: white;
 margin: 0 auto;
-font-size:7px;
+font-size:3px;
 `;
 }
