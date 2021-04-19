@@ -21,11 +21,19 @@ window.onload = function main() {
   const add = document.createElement('div')
   add.setAttribute("id", "demo");
   const overall = document.createElement('div')
+  const gdpr = document.createElement("h2")
+  document.body.appendChild(gdpr)
+  gdpr.style.fontSize="20px"
+  gdpr.style.display="flex"
+  gdpr.style.justifyContent="center"
+  gdpr.style.margin="10px"
+  gdpr.innerHTML="GDRP CONSENT"
 
   const add2 = document.createElement('div')
   Object.values(json.vendors).forEach(vendor => {
     const span = document.createElement('span');
     var checkbox = document.createElement('input');
+    var h2 = document.createElement('h2');
               
     checkbox.type = "checkbox";
     checkbox.name = "name";
@@ -36,10 +44,14 @@ window.onload = function main() {
     
     add2.appendChild(span)
     add2.appendChild(checkbox)
+ 
+  
+  
+
    
     span.style.cssText=`
     font-size:3px;`
-    span.innerHTML = `${vendor.name}, <a href="${vendor.policyUrl}" >${vendor.policyUrl}</a>
+    span.innerHTML = ` ${vendor.name}, <a href="${vendor.policyUrl}" >${vendor.policyUrl}</a>
     ${checkbox}`;
 
     
@@ -99,6 +111,7 @@ window.onload = function main() {
   function show() {
    add2.style.display="none"
    add3.style.display="none;"
+   gdpr.style.display="none"
    final.style.display="none"
    document.querySelector('.butons').style.display="none"
    document.body.style.backdropFilter="none"
@@ -110,6 +123,7 @@ window.onload = function main() {
   function hide() {
     add2.style.display="none"
     add3.style.display="none;"
+    gdpr.style.display="none"
     final.style.display="none"
     document.querySelector('.butons').style.display="none"
     document.body.style.width="100%"
